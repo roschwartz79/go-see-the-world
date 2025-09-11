@@ -2,3 +2,47 @@
 Learning the world of Go and GCP
 
 This is a simple application written in GoLang.
+
+### Key Technologies
+
+- Go
+- GIN
+
+### Getting Started
+
+#### Run the Application
+
+To start the server, open your terminal, navigate to the project directory, and run the following command. The application will start on `http://localhost:8080`.
+
+```bash
+go run .
+```
+
+### API Endpoints
+
+Use the following `cURL` commands to interact with the API endpoints.
+
+#### Add a New Player
+
+This command sends a **POST** request with a JSON body to the `/players` endpoint to add a new player to the team.
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Wayne Gretzky", "position": "Center"}' http://localhost:8080/players
+```
+
+#### Add a New Coach
+
+This command sends a **POST** request with a JSON body to the /coaches endpoint to add a new coach.
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Scotty Bowman", "position": "Head Coach"}' http://localhost:8080/coaches
+```
+
+#### View the Full Team Roster
+
+This command sends a GET request to the /team endpoint to retrieve the complete team roster, including all players and coaches.
+
+```bash
+curl http://localhost:8080/team
+```
+
