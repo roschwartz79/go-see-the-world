@@ -25,7 +25,11 @@ go run .
 
 ### API Endpoints
 
-Use the following `cURL` commands to interact with the API endpoints.
+Use the following `cURL` commands to interact with the API endpoints. The Cloud Run URL is
+
+```
+https://go-see-the-world-894054645138.us-central1.run.app
+```
 
 #### Add a New Player
 
@@ -33,6 +37,10 @@ This command sends a **POST** request with a JSON body to the `/players` endpoin
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"name": "Wayne Gretzky", "position": "Center"}' http://localhost:8080/players
+```
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Wayne Gretzky", "position": "Center"}' https://go-see-the-world-894054645138.us-central1.run.app/players
 ```
 
 #### Add a New Coach
@@ -43,12 +51,20 @@ This command sends a **POST** request with a JSON body to the /coaches endpoint 
 curl -X POST -H "Content-Type: application/json" -d '{"name": "Scotty Bowman", "position": "Head Coach"}' http://localhost:8080/coaches
 ```
 
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Scotty Bowman", "position": "Head Coach"}' https://go-see-the-world-894054645138.us-central1.run.app/coaches
+```
+
 #### View the Full Team Roster
 
 This command sends a GET request to the /team endpoint to retrieve the complete team roster, including all players and coaches.
 
 ```bash
 curl http://localhost:8080/team
+```
+
+```bash
+curl https://go-see-the-world-894054645138.us-central1.run.app/team
 ```
 
 ### Running in Google Cloud
