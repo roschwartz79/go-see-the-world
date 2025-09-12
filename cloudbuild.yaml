@@ -5,7 +5,7 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'us-central1-docker.pkg.dev/go-see-the-world/go-see-the-world-repo/go-see-the-world:$TAG_NAME'
+      - 'us-central1-docker.pkg.dev/go-see-the-world/cloud-run-build-admin/go-see-the-world:$TAG_NAME'
       - '.'
 
 options:
