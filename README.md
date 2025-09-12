@@ -7,6 +7,11 @@ This is a simple application written in GoLang.
 
 - Go
 - GIN
+- Docker
+- Google Cloud Platform
+  - Cloud Build
+  - Artifactory
+  - Cloud Run
 
 ### Getting Started
 
@@ -45,4 +50,17 @@ This command sends a GET request to the /team endpoint to retrieve the complete 
 ```bash
 curl http://localhost:8080/team
 ```
+
+### Running in Google Cloud
+
+Google Cloud is what I'm using to build, deploy and run this application.
+
+#### Building
+
+To kickoff a new pipeline and push an image to Artifactory, just create a Tag. Cloud Build will be triggered off of 
+a new Tag and will start a new pipeline when needed.
+
+#### Deploying
+
+TO deploy
 

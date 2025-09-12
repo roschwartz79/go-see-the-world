@@ -1,0 +1,12 @@
+steps:
+  # Step 1: Build the Docker image and push it to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'Build and Push'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/go-see-the-world/go-see-the-world-repo/go-see-the-world:$TAG_NAME'
+      - '.'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
