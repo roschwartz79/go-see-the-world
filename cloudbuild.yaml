@@ -2,16 +2,16 @@ steps:
   # Step 1: Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Build Image'
-    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/go-see-the-world/schwartz-artifactory/your-image-name:$TAG_NAME', '.' ]
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/go-see-the-world/schwartz-artifactory/go-see-the-world:$TAG_NAME', '.' ]
 
   # Step 2: Explicitly push the Docker image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Push Image'
-    args: [ 'push', 'us-central1-docker.pkg.dev/go-see-the-world/schwartz-artifactory/your-image-name:$TAG_NAME' ]
+    args: [ 'push', 'us-central1-docker.pkg.dev/go-see-the-world/schwartz-artifactory/go-see-the-world:$TAG_NAME' ]
 
 images:
   # List the image here so it appears as a build artifact in the Cloud Build UI
-  - 'us-central1-docker.pkg.dev/go-see-the-world/schwartz-artifactory/your-image-name:$TAG_NAME'
+  - 'us-central1-docker.pkg.dev/go-see-the-world/schwartz-artifactory/go-see-the-world:$TAG_NAME'
 
 options:
   logging: CLOUD_LOGGING_ONLY
