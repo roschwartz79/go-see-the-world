@@ -70,6 +70,15 @@ curl -X POST http://localhost:8080/teams \
 }'
 ```
 
+```bash
+curl -X POST https://go-see-the-world-894054645138.us-central1.run.app/teams \
+-H "Content-Type: application/json" \
+-d '{
+  "Id": 12345,
+  "Name": "Go Gophers"
+}'
+```
+
 #### View the Full Team Roster
 
 This command sends a GET request to the /teams endpoint to retrieve the complete team roster, including all players and coaches.
