@@ -1,0 +1,11 @@
+# Files I don't need included in my Docker Image
+.git
+.gitignore
+.dockerignore
+vendor/
+temp/
+*.log
+*.tmp
+cloudbuild.yaml
+README.md
+go-see-the-world # The executable file itself
