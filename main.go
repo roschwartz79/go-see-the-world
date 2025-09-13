@@ -13,11 +13,8 @@ func main() {
 	// Initialize a new Gin router
 	router := gin.Default()
 
-	// Initialize a Team
-	team := &models.Team{
-		Players: make([]models.Player, 0),
-		Coaches: make([]models.Coach, 0),
-	}
+	// Initialize a Team Slice
+	team := []*models.Team{}
 
 	teamRepo := repository.NewTeamRepository(team)
 
@@ -26,7 +23,8 @@ func main() {
 	coachHandler := handlers.NewCoachHandler(teamRepo)
 
 	// Define the routes for the application
-	router.GET("/team", teamHandler.GetTeam)
+	router.GET("/teams", teamHandler.GetTeams)
+	router.POST("/teams", teamHandler.CreateTeam)
 	router.POST("/players", playerHandler.CreatePlayer)
 	router.POST("/coaches", coachHandler.CreateCoach)
 

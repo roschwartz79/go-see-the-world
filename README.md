@@ -60,11 +60,11 @@ curl -X POST -H "Content-Type: application/json" -d '{"name": "Scotty Bowman", "
 This command sends a GET request to the /team endpoint to retrieve the complete team roster, including all players and coaches.
 
 ```bash
-curl http://localhost:8080/team
+curl http://localhost:8080/teams
 ```
 
 ```bash
-curl https://go-see-the-world-894054645138.us-central1.run.app/team
+curl https://go-see-the-world-894054645138.us-central1.run.app/teams
 ```
 
 ### Running in Google Cloud
