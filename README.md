@@ -36,11 +36,11 @@ https://go-see-the-world-894054645138.us-central1.run.app
 This command sends a **POST** request with a JSON body to the `/players` endpoint to add a new player to the team.
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name": "Wayne Gretzky", "position": "Center"}' http://localhost:8080/players
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Wayne Gretzky", "position": "Center"}' http://localhost:8080/players/<id>
 ```
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name": "Wayne Gretzky", "position": "Center"}' https://go-see-the-world-894054645138.us-central1.run.app/players
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Wayne Gretzky", "position": "Center"}' https://go-see-the-world-894054645138.us-central1.run.app/players/<id>
 ```
 
 #### Add a New Coach
@@ -48,16 +48,31 @@ curl -X POST -H "Content-Type: application/json" -d '{"name": "Wayne Gretzky", "
 This command sends a **POST** request with a JSON body to the /coaches endpoint to add a new coach.
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name": "Scotty Bowman", "position": "Head Coach"}' http://localhost:8080/coaches
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Scotty Bowman", "position": "Head Coach"}' http://localhost:8080/coaches/<id>
 ```
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name": "Scotty Bowman", "position": "Head Coach"}' https://go-see-the-world-894054645138.us-central1.run.app/coaches
+curl -X POST -H "Content-Type: application/json" -d '{"name": "Scotty Bowman", "position": "Head Coach"}' https://go-see-the-world-894054645138.us-central1.run.app/coaches/<id>
+```
+
+#### Create a Team
+
+This command sends a Post request to the /teams endpoint to create a Team.
+
+_Note: The Players and Coaches slice doesn't need to be passed in since Go will initialize the slice as empty to start off with._
+
+```bash
+curl -X POST http://localhost:8080/teams \
+-H "Content-Type: application/json" \
+-d '{
+  "Id": 12345,
+  "Name": "Go Gophers"
+}'
 ```
 
 #### View the Full Team Roster
 
-This command sends a GET request to the /team endpoint to retrieve the complete team roster, including all players and coaches.
+This command sends a GET request to the /teams endpoint to retrieve the complete team roster, including all players and coaches.
 
 ```bash
 curl http://localhost:8080/teams

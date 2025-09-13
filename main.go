@@ -25,8 +25,8 @@ func main() {
 	// Define the routes for the application
 	router.GET("/teams", teamHandler.GetTeams)
 	router.POST("/teams", teamHandler.CreateTeam)
-	router.POST("/players", playerHandler.CreatePlayer)
-	router.POST("/coaches", coachHandler.CreateCoach)
+	router.POST("/players/:id", playerHandler.CreatePlayer)
+	router.POST("/coaches/:id", coachHandler.CreateCoach)
 
 	// Start the server
 	fmt.Println("Server is running on http://localhost:8080")

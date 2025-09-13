@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"fmt"
 	"go-see-the-world/internal/models"
 	"sync"
 )
@@ -41,17 +42,32 @@ func (r *TeamRepository) AddTeam(team *models.Team) {
 }
 
 // AddPlayer adds a new player to the team in a thread-safe way.
-func (r *TeamRepository) AddPlayer(player models.Player) {
+func (r *TeamRepository) AddPlayer(player models.Player, id int64) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
-	r.Team.Players = append(r.Team.Players, player)
+	for _, team := range r.Teams {
+		if team.Id == id {
+			// Found the team, now add the player.
+			team.Players = append(team.Players, player)
+			return nil // Success, return no error
+		}
+	}
+
+	return fmt.Errorf("team with id %d not found", id)
 }
 
 // AddCoach adds a new coach to the team in a thread-safe way.
-func (r *TeamRepository) AddCoach(coach models.Coach) {
+func (r *TeamRepository) AddCoach(coach models.Coach, id int64) error {
 	r.mu.Lock()
 	defer r.mu.Unlock()
 
-	r.Team.Coaches = append(r.Team.Coaches, coach)
+	for _, team := range r.Teams {
+		if team.Id == id {
+			team.Coaches = append(team.Coaches, coach)
+			return nil
+		}
+	}
+
+	return fmt.Errorf("team with id %d not found", id)
 }
